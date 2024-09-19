@@ -1,17 +1,21 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './cardStyle.css'
+
 
 function Card(props) {
-    const { placeName, placeImage } = props;
+    const { placeName, placeImage, placeInfo } = props;
 
     return (
-        <div className="card" style={{ width: '18rem' }}>
-            <img className="card-img-top" src={placeImage} alt={placeName} style={{height: '12rem', objectFit: 'cover'}} />
-            <div className="card-body">
-                <h5 className="card-title" style={{alignItems : "center"}}>{placeName}</h5>
-                <a href="#" className="btn btn-primary" style={{alignItems : "center"}}>Wanna Visit</a>
-            </div>
-        </div>
+  <div class="card">
+    <div class="content">
+      <h2 class="title">{placeName}</h2>
+      <img src={placeImage} alt={placeName} />
+      <p class="copy">{placeInfo}</p>
+      <a href ='/place' class="btn">Wanna visit</a>
+    </div>
+  </div>
+  
     );
 }
 
