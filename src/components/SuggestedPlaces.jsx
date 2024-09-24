@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "./Card";
+import axios from 'axios';
 
 const places=['beach','cafe',];
 const RainPlaces=['cafe','library']
@@ -16,6 +17,23 @@ function SuggestedPlaces() {
             .catch(error => console.error('Error fetching weather data:', error));
     },);
 
+    const getWeatherPlaces = async (weather) => {
+        try {
+            const response = await axios.post(`http://127.0.0.1:5000/weather`, null, {
+                params: {
+                    weather: weather
+                }
+            });
+            console.log(response.data);
+        } catch (error) {
+            console.error("Error fetching weather places", error);
+        }
+    };
+    
+    useEffect(() => {
+        getWeatherPlaces(weather);
+    }, [weather]);
+    
     const giveSuggestion = () => {
         if (weather === null) {
             return <h4>Loading...</h4>;
