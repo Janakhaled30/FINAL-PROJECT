@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)
 
 
-app = Flask(_name_)
 
 client = MongoClient('mongodb+srv://manar414:manar695847@cluster0.u21vs.mongodb.net/?retryWrites=true&w=majority&tlsAllowInvalidCertificates=true')
 
@@ -100,5 +103,5 @@ def search():
 
 
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     app.run(debug=True)
