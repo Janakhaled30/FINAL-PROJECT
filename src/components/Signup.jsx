@@ -9,15 +9,19 @@ function Signup() {
                 <h3 className='text-center'>SignUp</h3>
                 <div className='mb-2'>
                     <label htmlFor="email">Email</label>
-                    <input type="email" placeholder='Enter Email' className='form-control'/>
+                    <input type="email" placeholder='Enter Your Email' className='form-control'/>
                 </div>
                 <div className='mb-2'>
                     <label htmlFor="password">Password</label>
-                    <input type="password" placeholder='Enter Password' className='form-control'/>
+                    <input type="password" placeholder='Enter  Your Password' className='form-control'/>
+                </div>
+                <div className='mb-2'>
+                    <label htmlFor='password'>Confirm Password</label>
+                    <input type="password" placeholder='Confirm Your Password' className='form-control'/>
                 </div>
                 
                 <div className='d-grid mt-2'>
-                    <button className='btn btn-primary'>Sign Un</button>
+                    <button className='btn btn-primary'>Sign Up</button>
                 </div>
                 <p className='text-end mt-2'>
                     Already Registerd <Link to="/" className='ms-2'>Sign in</Link>
