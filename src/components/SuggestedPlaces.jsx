@@ -3,10 +3,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "./Card";
 import axios from 'axios';
 
-const places=['beach','cafe',];
-const RainPlaces=['cafe','library']
-
 function SuggestedPlaces() {
+    const places=[];
     const [weather, setWeather] = useState(null);
     const api = "https://api.openweathermap.org/data/2.5/weather?q=alexandria&appid=e3f9787e87e2a1b46edcb0c315830d35&units=metric";
 
@@ -25,54 +23,38 @@ function SuggestedPlaces() {
                 }
             });
             console.log(response.data);
+            for(let i = 0 ;i<4;i++)
+                {
+                    places.push(response.data[i]);
+                    console.log(places[i]);
+            
+            }
         } catch (error) {
             console.error("Error fetching weather places", error);
         }
     };
     
     useEffect(() => {
+        if(weather!=null)
+        {
         getWeatherPlaces(weather);
+        }
     }, [weather]);
     
     const giveSuggestion = () => {
         if (weather === null) {
             return <h4>Loading...</h4>;
         }
-        else if (weather === 'Rain') {
+        else {
             return (
                 <div className="container text-center">
                 <div className="row g-2">
-                    {RainPlaces.map((place,image, index) => {
-                        return (
-                            <div className="col-6" key={index}>
-                                <div className="p-3">
-                                    <Card
-                                        placeName={place} 
-                                        placeImage={image}
-                                    />
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
-            );
-        } else {
-            return (
-                <div className="container text-center">
-                <div className="row g-2">
-                    {places.map((place,image, index) => {
-                        return (
-                            <div className="col-6" key={index}>
-                                <div className="p-3">
-                                    <Card
-                                        placeName={place} 
-                                        placeImage={image}
-                                    />
-                                </div>
-                            </div>
-                        );
-                    })}
+                    
+                     <Card
+                     placeName={places[0].name} 
+                     placeImage={places[0].image_url}
+                 />
+                   
                 </div>
             </div>
             );
