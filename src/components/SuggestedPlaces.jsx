@@ -3,10 +3,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "./Card";
 import axios from 'axios';
 
-const places=['beach','cafe',];
-const RainPlaces=['cafe','library']
+// const places=['beach','cafe',];
+// const RainPlaces=['cafe','library']
 
 function SuggestedPlaces() {
+    // const places = [];
+    
+    const [places, setPlaces] = useState([]);
     const [weather, setWeather] = useState(null);
     const api = "https://api.openweathermap.org/data/2.5/weather?q=alexandria&appid=e3f9787e87e2a1b46edcb0c315830d35&units=metric";
 
@@ -18,13 +21,22 @@ function SuggestedPlaces() {
     },);
 
     const getWeatherPlaces = async (weather) => {
-        try {
-            const response = await axios.post(`http://127.0.0.1:5000/weather`, null, {
-                params: {
-                    weather: weather
-                }
-            });
+            try {
+                const response = await axios.post(`http://127.0.0.1:5000/weather`, null, {
+                    params: {
+                        weather: weather
+                    }
+                });
+            console.log(weather);
             console.log(response.data);
+
+             for(let i = 0 ;i<4;i++)
+                {
+                    places.push(response.data[i]);
+                    console.log(places[i]);
+            
+            }
+            setPlaces(response.data);
         } catch (error) {
             console.error("Error fetching weather places", error);
         }
@@ -35,50 +47,74 @@ function SuggestedPlaces() {
     }, [weather]);
     
     const giveSuggestion = () => {
-        if (weather === null) {
+        if (weather === null || places.length === 0) {
             return <h4>Loading...</h4>;
         }
-        else if (weather === 'Rain') {
+        else {
             return (
                 <div className="container text-center">
-                <div className="row g-2">
-                    {RainPlaces.map((place,image, index) => {
-                        return (
-                            <div className="col-6" key={index}>
+                    <div className="row g-2">
+
+                    <div className="col-6" >
                                 <div className="p-3">
                                     <Card
-                                        placeName={place} 
-                                        placeImage={image}
+                                        placeName={places[0].name}
+                                        placeImage={places[0].image_url}
                                     />
                                 </div>
                             </div>
-                        );
-                    })}
-                </div>
-            </div>
-            );
-        } else {
-            return (
-                <div className="container text-center">
-                <div className="row g-2">
-                    {places.map((place,image, index) => {
-                        return (
-                            <div className="col-6" key={index}>
+
+
+                            <div className="col-6" >
                                 <div className="p-3">
                                     <Card
-                                        placeName={place} 
-                                        placeImage={image}
+                                       placeName={places[1].name}
+                                       placeImage={places[1].image_url}
                                     />
                                 </div>
                             </div>
-                        );
-                    })}
+
+
+                            <div className="col-6" >
+                                <div className="p-3">
+                                    <Card
+                                        placeName={places[2].name}
+                                        placeImage={places[2].image_url}
+                                    />
+                                </div>
+                            </div>
+
+
+                            <div className="col-6" >
+                                <div className="p-3">
+                                    <Card
+                                        placeName={places[3].name}
+                                        placeImage={places[3].image_url}
+                                    />
+                                </div>
+                            </div>
+
+                         {/* <Card
+                                            placeName={places[0].name}
+                                            placeImage={places[0].image_url}
+                        />
+                        <Card
+                                            placeName={places[1].name}
+                                            placeImage={places[1].image_url}
+                        />
+                        <Card
+                                            placeName={places[2].name}
+                                            placeImage={places[2].image_url}
+                        />
+                        <Card
+                                            placeName={places[3].name}
+                                            placeImage={places[3].image_url}
+                        /> */}
+                    </div>
                 </div>
-            </div>
             );
         }
-    };
-
+    }
     return (
         <div>
             <h4>Depending on the weather, you can go to:</h4>
