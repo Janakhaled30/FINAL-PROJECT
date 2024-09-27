@@ -1,24 +1,27 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import DisplayPage from './pages/DisplayPage';
+import HiddenGems from './pages/HiddenGems';
 import Place from './pages/Place';
 import Home from './pages/Home';
-import SuggestedPlaces from './components/SuggestedPlaces';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import Slider from './components/Slider';
+import Family from './pages/Family';
+import Explore from './pages/Explore';
+import Historical from './pages/HistoricalPlaces';
 
 function App() {
   return (
     <BrowserRouter>
+    <div className='full'>
     <Routes>
-      <Route index element = {<Login />} />
-      <Route index element = {<Slider />} />
+      <Route index element = {<Home />} />
       <Route path='/home' element = {<Home />} />
-      <Route path='/display' element = {<DisplayPage />} />
-      <Route path='/place' element = {<Place />} />
-    </Routes>
+      <Route path='/family' element = {<Family />} />
+      <Route path='/explore' element = {<Explore />} />
+      <Route path='/pages/HiddenPlaces' element = {<HiddenGems />} />
+      <Route path='/pages/historical' element = {<Historical />} />
+      <Route path='/place/:placeName' element={<Place />} />
+      </Routes>
+      </div>
   </BrowserRouter>
 );
 }
