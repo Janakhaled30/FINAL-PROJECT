@@ -8,7 +8,6 @@ import axios from 'axios';
 
 function SuggestedPlaces() {
     // const places = [];
-    
     const [places, setPlaces] = useState([]);
     const [weather, setWeather] = useState(null);
     const api = "https://api.openweathermap.org/data/2.5/weather?q=alexandria&appid=e3f9787e87e2a1b46edcb0c315830d35&units=metric";
@@ -30,12 +29,12 @@ function SuggestedPlaces() {
             console.log(weather);
             console.log(response.data);
 
-             for(let i = 0 ;i<4;i++)
-                {
-                    places.push(response.data[i]);
-                    console.log(places[i]);
+            //  for(let i = 0 ;i<4;i++)
+            //     {
+            //         places.push(response.data[i]);
+            //         console.log(places[i]);
             
-            }
+            // }
             setPlaces(response.data);
         } catch (error) {
             console.error("Error fetching weather places", error);
@@ -51,66 +50,24 @@ function SuggestedPlaces() {
             return <h4>Loading...</h4>;
         }
         else {
+
             return (
+                <div>
+                    <div/>
                 <div className="container text-center">
-                    <div className="row g-2">
-
-                    <div className="col-6" >
-                                <div className="p-3">
-                                    <Card
-                                        placeName={places[0].name}
-                                        placeImage={places[0].image_url}
-                                    />
-                                </div>
+                <div className="row g-2">
+                    {places.map((place, index) => (
+                        <div className="col-6" key={index}>
+                            <div className="p-3">
+                                <Card
+                                    placeName={place.name}
+                                    placeImage={place.image_url}
+                                />
                             </div>
-
-
-                            <div className="col-6" >
-                                <div className="p-3">
-                                    <Card
-                                       placeName={places[1].name}
-                                       placeImage={places[1].image_url}
-                                    />
-                                </div>
-                            </div>
-
-
-                            <div className="col-6" >
-                                <div className="p-3">
-                                    <Card
-                                        placeName={places[2].name}
-                                        placeImage={places[2].image_url}
-                                    />
-                                </div>
-                            </div>
-
-
-                            <div className="col-6" >
-                                <div className="p-3">
-                                    <Card
-                                        placeName={places[3].name}
-                                        placeImage={places[3].image_url}
-                                    />
-                                </div>
-                            </div>
-
-                         {/* <Card
-                                            placeName={places[0].name}
-                                            placeImage={places[0].image_url}
-                        />
-                        <Card
-                                            placeName={places[1].name}
-                                            placeImage={places[1].image_url}
-                        />
-                        <Card
-                                            placeName={places[2].name}
-                                            placeImage={places[2].image_url}
-                        />
-                        <Card
-                                            placeName={places[3].name}
-                                            placeImage={places[3].image_url}
-                        /> */}
-                    </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
                 </div>
             );
         }
