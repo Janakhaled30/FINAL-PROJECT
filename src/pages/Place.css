@@ -1,0 +1,12 @@
+.pl{
+    margin:0;
+    padding:0;
+    background-color: #183661;
+    color: white;
+}
+
+.image{
+    width: 50%;
+    height: auto;
+    padding-right: 20px;
+}

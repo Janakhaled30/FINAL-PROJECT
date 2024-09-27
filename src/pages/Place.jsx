@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import './Place.css'
 
 
 function Place(props) {
   const { placeName } = useParams();
   const [place, setPlace] = useState(null);
 
-
+ 
   const containerStyle = {
     minHeight: "100vh",
     display: "flex", 
@@ -21,7 +22,7 @@ function Place(props) {
   };
   
   const imageStyle = {
-    width:"500px", 
+    width:"300px",height:"auto" 
   };
   
   const buttonContainerStyle = {
@@ -65,16 +66,11 @@ if(place && place!==null)
   console.log("hii")
   console.log(place)
   return (
-    <div className="main"style={containerStyle}>
-      <img src={place[0].image_url} /> 
-      <div style={contentStyle}>
+    <div className="main pl"style={containerStyle}>
+      <img className='image' src={place[0].image_url} /> 
+      <div className='info' style={contentStyle}>
         <h1>{place[0].name}</h1>
-        {/* <h4>{placeInfo}</h4> */}
-    <div style={buttonContainerStyle}>
-      {isLoggedIn && (
-        <button onClick={handleButtonClick}>Visited</button>
-      )}
-    </div>
+        <h4>{place[0].weather}</h4>
         <iframe
           src={place[0].location}
           width="600"
