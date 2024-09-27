@@ -1,30 +1,57 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+
 
 function Place(props) {
-  const { placeName, placeImage, placeInfo, mapsrc, imageWidth } = props;
+  const { placeName } = useParams();
+  const [place, setPlace] = useState(null);
+
 
   const containerStyle = {
     minHeight: "100vh",
     display: "flex", 
     flexDirection: "row",
   };
-
+  
   const contentStyle = {
     flex: 1, 
     textAlign: "left",
     padding: "1rem", 
   };
-
+  
   const imageStyle = {
-    width: imageWidth || "500px", 
+    width:"500px", 
   };
-
+  
   const buttonContainerStyle = {
     textAlign: "right", 
     marginTop: "1rem", 
   };
-
+  
   const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+ 
+useEffect(() => {
+  getPlaceDetails(placeName); // Fetch details when component mounts
+}, [placeName]);
+
+const getPlaceDetails = async (name) => {
+  try {
+    const response = await axios.post(`http://127.0.0.1:5000/name`, null, {
+      params: {
+        name: placeName
+    }
+    });
+    setPlace(response.data);  
+    console.log(place);
+
+  }
+     catch (error) {
+    console.error("Error fetching place details", error);
+  }
+};
+
 
   const handleButtonClick = () => {
     if (isLoggedIn) {
@@ -33,20 +60,23 @@ function Place(props) {
       console.log('User must be logged in to perform this action');
     }
   };
-
+if(place && place!==null)
+{ 
+  console.log("hii")
+  console.log(place)
   return (
     <div className="main"style={containerStyle}>
-      <img src={placeImage} Museum alt={placeImage} style={imageStyle} /> 
+      <img src={place[0].image_url} /> 
       <div style={contentStyle}>
-        <h1>{placeName}</h1>
-        <h4>{placeInfo}</h4>
+        <h1>{place[0].name}</h1>
+        {/* <h4>{placeInfo}</h4> */}
     <div style={buttonContainerStyle}>
       {isLoggedIn && (
         <button onClick={handleButtonClick}>Visited</button>
       )}
     </div>
         <iframe
-          src={mapsrc}
+          src={place[0].location}
           width="600"
           height="450"
           allowfullscreen=""
@@ -56,6 +86,11 @@ function Place(props) {
       </div>
     </div>
   );
+}
+else
+{
+  return <h4>Loading...</h4>;
+}
 }
 
 export default Place;
