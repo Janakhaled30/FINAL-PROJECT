@@ -1,38 +1,29 @@
-.App {
-  text-align: center;
+import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import HiddenGems from './pages/HiddenGems';
+import Place from './pages/Place';
+import Home from './pages/Home';
+import Family from './pages/Family';
+import Explore from './pages/Explore';
+import Historical from './pages/HistoricalPlaces';
+
+function App() {
+  return (
+    <BrowserRouter>
+    <div className='full'>
+    <Routes>
+      <Route index element = {<Home />} />
+      <Route path='/home' element = {<Home />} />
+      <Route path='/family' element = {<Family />} />
+      <Route path='/explore' element = {<Explore />} />
+      <Route path='/pages/HiddenPlaces' element = {<HiddenGems />} />
+      <Route path='/pages/historical' element = {<Historical />} />
+      <Route path='/place/:placeName' element={<Place />} />
+      </Routes>
+      </div>
+  </BrowserRouter>
+);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+export default App;
