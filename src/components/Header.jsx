@@ -4,13 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import logo from './logo.png'
 
 
 function Header() {
     const category = 'o'
   return (<header  class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
-          <a class="navbar-brand me-auto " href="#">Logo</a>
+          <img  className='logo' src={logo}/>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas Navbar Label">
               <div class="offcanvas-header">
                   <h5 class="offcanvas-title" id="offcanvas NavbarLabel">Logo</h5>
@@ -24,28 +25,25 @@ function Header() {
                       <li class="nav-item">
                       <Link class="nav-link mx-lg-2 active" aria-current="page" to="/Explore">Explore</Link>
                       </li>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle p-2 p-lg-3" href={`/display/${category}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Hidden Places
-                          </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/display">Hidden gems</Link>
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/display">Ancient ST.</Link>
-
-                          </ul>
+                      <li class="nav-item">
+                      <Link class="nav-link mx-lg-2 active" aria-current="page" to="/Family">Family</Link>
                       </li>
                       <li class="nav-item dropdown">
                           <a class="nav-link dropdown-toggle p-2 p-lg-3" href={`/display/${category}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                              Historical Places
+                              Others
                           </a>
                           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/display">Museums </Link>
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/display">Biba Alex.</Link>
+                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="../pages/HiddenPlaces">Hidden gems </Link>
+                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/pages/historical">Historical PL</Link>
                           </ul>
                       </li>
                   </ul>
           </div>
       </div>
+
+      <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
       <div class="search ps-3 pe-3">
           <i class="fa-solid fa-comment"></i>
       </div>
