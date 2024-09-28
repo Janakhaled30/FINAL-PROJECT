@@ -15,25 +15,21 @@ function Family() {
                     kids: kids
                 }
             });
-        // console.log(kids);
-        console.log(response.data);
+            // console.log(kids);
+            console.log(response.data);
 
-        setPlaces(response.data);
-    } catch (error) {
-        console.error("Error fetching family places", error);
-    }
-};
+            setPlaces(response.data);
+        } catch (error) {
+            console.error("Error fetching family places", error);
+        }
+    };
 
-useEffect(() => {
-    getFamilyPlaces(kids);
-}, [kids]);
+    useEffect(() => {
+        getFamilyPlaces(kids);
+    }, [kids]);
 
     return (
-        <div>
-            <Header />
-            <div className='main'>
-                    <div/>
-                <div className="container text-center">
+            <div className="container text-center">
                 <div className="row g-2">
                     {places.map((place, index) => (
                         <div className="col-6" key={index}>
@@ -47,9 +43,6 @@ useEffect(() => {
                     ))}
                 </div>
             </div>
-                </div>
-                <div><Footer /></div>
-        </div>
     );
 }
 
