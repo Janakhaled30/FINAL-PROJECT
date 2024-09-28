@@ -1,19 +1,10 @@
 import React from 'react';
-import {
-  MDBFooter,
-} from 'mdb-react-ui-kit';
 import './footer.css';
 
-
-export default function App() {
+export default function Footer() {
   return (
-    <MDBFooter bgColor='primary' className='text-white text-center text-lg-left'>
-      <div className='text-center p-3' style={{ backgroundColor: ' #183661' }}>
-        &copy; {new Date().getFullYear()} Copyright:{' '}
-        <a className='text-white' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
-        </a>
-      </div>
-    </MDBFooter>
+    <footer>
+      <p>&copy; Protons 2024 : Les Argonautes</p>
+    </footer>
   );
 }
