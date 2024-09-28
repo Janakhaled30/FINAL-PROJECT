@@ -9,45 +9,45 @@ import logo from './logo.png'
 
 function Header() {
     const category = 'o'
-  return (<header  class="navbar navbar-expand-lg fixed-top">
-      <div class="container-fluid">
+  return (<header  className="navbar navbar-expand-lg">
+      <div className="container-fluid">
           <img  className='logo' src={logo}/>
-          <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas Navbar Label">
-              <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvas NavbarLabel">Logo</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <div className="offcanvas offcanvas-end" tabIndex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas Navbar Label">
+              <div className="offcanvas-header">
+                  <h5 className="offcanvas-title" id="offcanvas NavbarLabel">Les Argonautes</h5>
+                  <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
               </div>
-              <div class="offcanvas-body">
-                  <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
-                      <li class="nav-item">
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/Home">Home</Link>
+              <div className="offcanvas-body">
+                  <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
+                      <li className="nav-item">
+                          <Link className="nav-link mx-lg-2 active" aria-current="page" to="/Home">Home</Link>
                       </li>
-                      <li class="nav-item">
-                      <Link class="nav-link mx-lg-2 active" aria-current="page" to="/Explore">Explore</Link>
+                      <li className="nav-item">
+                      <Link className="nav-link mx-lg-2 active" aria-current="page" to="/Explore">Explore</Link>
                       </li>
-                      <li class="nav-item">
-                      <Link class="nav-link mx-lg-2 active" aria-current="page" to="/Family">Family</Link>
+                      <li className="nav-item">
+                      <Link className="nav-link mx-lg-2 active" aria-current="page" to="/Family">Family</Link>
                       </li>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle p-2 p-lg-3" href={`/display/${category}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      <li className="nav-item dropdown">
+                          <a className="nav-link dropdown-toggle p-2 p-lg-3" href={`/display/${category}`} role="button" data-bs-toggle="dropdown" aria-expanded="false">
                               Others
                           </a>
-                          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="../pages/HiddenPlaces">Hidden gems </Link>
-                          <Link class="nav-link mx-lg-2 active" aria-current="page" to="/pages/historical">Historical PL</Link>
+                          <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
+                          <Link className="nav-link mx-lg-2 active" aria-current="page" to="../pages/HiddenPlaces">Hidden gems </Link>
+                          <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/historical">Historical PL</Link>
+                          {/* <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/historical">Outdoor PL</Link> */}
                           </ul>
                       </li>
                   </ul>
           </div>
       </div>
 
-      <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+      <button className="navbar-toggler pe-0  ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
       </button>
-      <div class="search ps-3 pe-3">
-          <i class="fa-solid fa-comment"></i>
+      <div className="search ps-3 pe-3">
+          <i className="fa-solid fa-comment"></i>
       </div>
-  </div><div class header-image>
       </div>
 </header>
              )
