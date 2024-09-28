@@ -25,11 +25,6 @@ function Place(props) {
     width:"300px",height:"auto" 
   };
   
-  const buttonContainerStyle = {
-    textAlign: "right", 
-    marginTop: "1rem", 
-  };
-  
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
  
@@ -66,18 +61,18 @@ if(place && place!==null)
   console.log("hii")
   console.log(place)
   return (
-    <div className="main pl"style={containerStyle}>
+    <div className="pl"style={containerStyle}>
       <img className='image' src={place[0].image_url} /> 
       <div className='info' style={contentStyle}>
         <h1>{place[0].name}</h1>
-        <h4>{place[0].weather}</h4>
+        <h4>{place[0].describtion}</h4>
         <iframe
           src={place[0].location}
           width="600"
           height="450"
-          allowfullscreen=""
+          allowFullScreen=""
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
+          referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
     </div>
@@ -85,7 +80,7 @@ if(place && place!==null)
 }
 else
 {
-  return <h4>Loading...</h4>;
+  return <h4 >Loading...</h4>;
 }
 }
 
