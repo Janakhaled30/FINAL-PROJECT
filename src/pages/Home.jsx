@@ -1,15 +1,12 @@
 import React from "react";
 import SuggestedPlaces from "../components/SuggestedPlaces";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
+import Ss from "../components/ss";
 
 function Home(){
     return(
-        <div style={{textAlign:'left'}} className="main">
-            <Header/>
+        <div style={{textAlign:'left'}}>
+            <Ss/>
             <SuggestedPlaces/>
-            <Footer/>
         </div>
     )
 }
