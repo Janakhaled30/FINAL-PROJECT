@@ -1,4 +1,18 @@
 footer{
+    background-color: #183661;
+    height: 80px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
 
-    width :100%;
 }
+p{
+    margin: 0;
+    padding: 0;
+}
+
+
