@@ -7,12 +7,11 @@ import Footer from "../components/Footer";
 function Explore() {
     const [places, setPlaces] = useState([]);
 
-    const getFamilyPlaces = async () => {
+    const getAllPlaces = async () => {
         try {
             const response = await axios.get(`http://127.0.0.1:5000/get_data`, null, {
 
             });
-            // console.log(kids);
             console.log(response.data);
 
             setPlaces(response.data);
@@ -22,7 +21,7 @@ function Explore() {
     };
 
     useEffect(() => {
-        getFamilyPlaces();
+        getAllPlaces();
     }, []);
 
     return (
