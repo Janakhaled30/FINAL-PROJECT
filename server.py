@@ -27,6 +27,20 @@ def filter():
     else:
         return "not found"
 
+
+#///////////////////////////////////////////
+@app.route("/cafe", methods=['GET'])
+def get_cafe():
+    # Gather all data
+    data = list(collection.find({"cafe_restaurant":"true"}))
+
+    # Removing ObjectId and returning the data
+    if data:
+        for info in data:
+            info.pop('_id', None)
+        return jsonify(data), 200
+    else:
+        return "data not found"
 # ////////////////////////////////////////////////////
 @app.route("/weather", methods=["POST"])
 def weather_DEF():
