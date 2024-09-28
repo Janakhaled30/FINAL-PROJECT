@@ -7,26 +7,6 @@ import './Place.css'
 function Place(props) {
   const { placeName } = useParams();
   const [place, setPlace] = useState(null);
-
- 
-  const containerStyle = {
-    minHeight: "100vh",
-    display: "flex", 
-    flexDirection: "row",
-  };
-  
-  const contentStyle = {
-    flex: 1, 
-    textAlign: "left",
-    padding: "1rem", 
-  };
-  
-  const imageStyle = {
-    width:"300px",height:"auto" 
-  };
-  
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
  
 useEffect(() => {
   getPlaceDetails(placeName); // Fetch details when component mounts
@@ -49,31 +29,26 @@ const getPlaceDetails = async (name) => {
 };
 
 
-  const handleButtonClick = () => {
-    if (isLoggedIn) {
-      console.log('Button clicked, user is logged in');
-    } else {
-      console.log('User must be logged in to perform this action');
-    }
-  };
 if(place && place!==null)
 { 
   console.log("hii")
   console.log(place)
   return (
-    <div className="pl"style={containerStyle}>
-      <img className='image' src={place[0].image_url} /> 
-      <div className='info' style={contentStyle}>
-        <h1>{place[0].name}</h1>
-        <h4>{place[0].describtion}</h4>
+    <div className='container'>
+        <h1 className='heading'>{place[0].name}</h1>
+      <img className='placeImg' src={place[0].image_url} /> 
+      <div className='container2'>
+        <h4 className='description'>{place[0].describtion}<a className='wiki' href={place[0].wikipedia_link}>....see more</a></h4>
         <iframe
+          className='map'
           src={place[0].location}
-          width="600"
-          height="450"
           allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         ></iframe>
+      </div>
+      <div className='container3'>
+
       </div>
     </div>
   );
