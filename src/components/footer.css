@@ -16,3 +16,10 @@ p{
 }
 
 
+
+@media(max-width: 760px){
+    footer{
+
+    width: 100%;
+}
+}
