@@ -1,13 +1,14 @@
 .navbar{
     background-color: #183661;
     height: 80px;
-    border-radius: 7px;
 }
 
 .logo{
     width: 80px;
     height: auto;
+    object-fit: cover;
 }
+
 
 .navbar-brand{
     font-weight: 500;
@@ -17,19 +18,6 @@
     padding: 0.5rem;
 }
 
-.login-button{
-    background-color:#659DBF ;
-    color: #fff;
-    font-size: 14px;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: 0.3s background-color;
-}
-
-.login-button:hover{
-    background-color:#cdcccc ;
-}
 
 .navbar-toggler {
     border: none;
