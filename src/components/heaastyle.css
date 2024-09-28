@@ -1,6 +1,13 @@
 .navbar{
     background-color: #183661;
     height: 80px;
+    font-size: 28px;
+}
+
+.websiteName{
+    color: white;
+    font-size: 20px;
+    font-weight: 800;
 }
 
 .logo{
@@ -14,7 +21,7 @@
     font-weight: 500;
     color: white;
     font-size: 24px;
-    transition: 0.3 color  ;
+    transition: 0.3 color;
     padding: 0.5rem;
 }
 
