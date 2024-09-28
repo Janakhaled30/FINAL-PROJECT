@@ -15,39 +15,32 @@ function HiddenGems() {
                     hidden_gem: hidden_gem
                 }
             });
-        console.log(response.data);
+            console.log(response.data);
 
-        setPlaces(response.data);
-    } catch (error) {
-        console.error("Error fetching hidden gems ", error);
-    }
-};
+            setPlaces(response.data);
+        } catch (error) {
+            console.error("Error fetching hidden gems ", error);
+        }
+    };
 
-useEffect(() => {
-    getFamilyPlaces(hidden_gem);
-}, [hidden_gem]);
+    useEffect(() => {
+        getFamilyPlaces(hidden_gem);
+    }, [hidden_gem]);
 
     return (
-        <div>
-            <Header />
-            <div className='main'>
-                    <div/>
-                <div className="container text-center">
-                <div className="row g-2">
-                    {places.map((place, index) => (
-                        <div className="col-6" key={index}>
-                            <div className="p-3">
-                                <Card
-                                    placeName={place.name}
-                                    placeImage={place.image_url}
-                                />
-                            </div>
+        <div className="container text-center">
+            <div className="row g-2">
+                {places.map((place, index) => (
+                    <div className="col-6" key={index}>
+                        <div className="p-3">
+                            <Card
+                                placeName={place.name}
+                                placeImage={place.image_url}
+                            />
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
-                </div>
-            <Footer />
         </div>
     );
 }
