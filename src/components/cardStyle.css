@@ -5,10 +5,16 @@
   --font-sans: "Rubik", sans-serif;
   --font-serif: "Cardo", serif;
 }
-.cardimg{
-  width: 50%;
-  height: 50%;
+
+
+.CardImage{
+  width: 100%;          
+  height: auto;          
+  object-fit: cover;
+  max-width: 200px;
+  aspect-ratio: 16 / 9;
 }
+
 * {
   box-sizing: border-box;
   background-repeat: no-repeat;
@@ -47,7 +53,7 @@ body {
 .card {
   position: relative;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   overflow: hidden;
   padding: 1rem;
   width: 100%;
@@ -88,6 +94,9 @@ body {
 }
 .card:nth-child(1):before {
   background-image: placeImage;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .content {
