@@ -10,6 +10,10 @@ import logo from './logo.png'
 function Header() {
     const category = 'o'
   return (<header  class="navbar navbar-expand-lg fixed-top">
+      <header style={{ backgroundColor: 'white' }}>
+  <img src="logo.png" alt="Logo" />
+  <h1 style={{ marginLeft: '10px' }}>Alexplorer</h1>
+</header>
       <div class="container-fluid">
           <img  className='logo' src={logo}/>
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvas Navbar Label">
