@@ -37,6 +37,9 @@ function Header() {
                           <Link className="nav-link mx-lg-2 active" aria-current="page" to="../pages/HiddenPlaces">Hidden gems </Link>
                           <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/historical">Historical PL</Link>
                           <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/Cafe">Cafes</Link>
+                          <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/Sports">Sports</Link>
+                          <Link className="nav-link mx-lg-2 active" aria-current="page" to="/pages/Working_spaces">Working Spaces</Link>
+
                           </ul>
                       </li>
                   </ul>
