@@ -3,8 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from "./Card";
 import axios from 'axios';
 
-// const places=['beach','cafe',];
-// const RainPlaces=['cafe','library']
+
 
 function SuggestedPlaces() {
     // const places = [];
@@ -29,12 +28,6 @@ function SuggestedPlaces() {
             console.log(weather);
             console.log(response.data);
 
-            //  for(let i = 0 ;i<4;i++)
-            //     {
-            //         places.push(response.data[i]);
-            //         console.log(places[i]);
-
-            // }
             setPlaces(response.data);
         } catch (error) {
             console.error("Error fetching weather places", error);
@@ -73,8 +66,8 @@ function SuggestedPlaces() {
         }
     }
     return (
-        <div className='main'>
-            <h4>Depending on the weather, you can go to:</h4>
+        <div>
+            <h4 style={{textAlign:`center`,marginTop:`24px`,fontWeight:`900`}}>Depending on the weather, you can go to:</h4>
             {giveSuggestion()}
         </div>
     );
