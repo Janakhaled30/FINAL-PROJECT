@@ -1,0 +1,79 @@
+.navbar{
+    background-color: #183661;
+    height: 80px;
+    border-radius: 7px;
+}
+
+.logo{
+    width: 80px;
+    height: auto;
+}
+
+.navbar-brand{
+    font-weight: 500;
+    color: white;
+    font-size: 24px;
+    transition: 0.3 color  ;
+    padding: 0.5rem;
+}
+
+.login-button{
+    background-color:#659DBF ;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+
+.login-button:hover{
+    background-color:#cdcccc ;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+    color: white;
+}
+
+.navbar-toggler:focus, .btn-close:focus{
+    box-shadow: none;
+    outline: none;
+}
+.nav-link{
+    color: white;
+    font-weight: 500;
+    position: relative;
+}
+.nav-link:hover, .nav-link.active , .nav-link:focus{
+    color: #cdcccc;
+}
+.search{
+    height: 20px;
+    color: white;
+}
+
+@media( max-width: 991px){
+    .nav-link{
+        color: black;
+    }
+}
+@media( min-width: 991px){
+    .nav-link::before{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #6675e5;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+    .nav-link:hover::before, .nav-link.active::before{
+        width: 100%;
+        visibility: visible;
+    }
+}
