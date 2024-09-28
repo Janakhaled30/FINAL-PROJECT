@@ -10,6 +10,9 @@ import Historical from './pages/HistoricalPlaces.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Cafe from './pages/Cafe.jsx';
+import Sports from './pages/Sports.jsx';
+import Working_spaces from './pages/Working_spaces.jsx';
+
 
 function App() {
   return (
@@ -24,7 +27,10 @@ function App() {
       <Route path='/explore' element = {<Explore />} />
       <Route path='/pages/HiddenPlaces' element = {<HiddenGems />} />
       <Route path='/pages/historical' element = {<Historical />} />
-      <Route path='/pages/Cafe' element = {<Cafe />} />
+      <Route path='/pages/Cafe' element={<Cafe />} />
+      <Route path='/pages/Sports' element={<Sports />} />
+      <Route path='/pages/Working_spaces' element = {<Working_spaces />} />
+
       <Route path='/place/:placeName' element={<Place />} />
       </Routes>
       </div>
