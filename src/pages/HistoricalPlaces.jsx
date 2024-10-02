@@ -15,24 +15,20 @@ function Historical() {
                     historical: historical
                 }
             });
-        console.log(response.data);
+            console.log(response.data);
 
-        setPlaces(response.data);
-    } catch (error) {
-        console.error("Error fetching historical places", error);
-    }
-};
+            setPlaces(response.data);
+        } catch (error) {
+            console.error("Error fetching historical places", error);
+        }
+    };
 
-useEffect(() => {
-    getFamilyPlaces(historical);
-}, [historical]);
+    useEffect(() => {
+        getFamilyPlaces(historical);
+    }, [historical]);
 
     return (
-        <div>
-            <Header />
-            <div className='main'>
-                    <div/>
-                <div className="container text-center">
+            <div className="container text-center">
                 <div className="row g-2">
                     {places.map((place, index) => (
                         <div className="col-6" key={index}>
@@ -46,9 +42,6 @@ useEffect(() => {
                     ))}
                 </div>
             </div>
-                </div>
-            <Footer />
-        </div>
     );
 }
 

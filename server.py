@@ -27,6 +27,47 @@ def filter():
     else:
         return "not found"
 
+
+#///////////////////////////////////////////
+@app.route("/cafe", methods=['GET'])
+def get_cafe():
+    # Gather all data
+    data = list(collection.find({"cafe_restaurant":"true"}))
+
+    # Removing ObjectId and returning the data
+    if data:
+        for info in data:
+            info.pop('_id', None)
+        return jsonify(data), 200
+    else:
+        return "data not found"
+#///////////////////////////////////////////
+@app.route("/sports", methods=['GET'])
+def get_sports():
+    # Gather all data
+    data = list(collection.find({"sports":"true"}))
+
+    # Removing ObjectId and returning the data
+    if data:
+        for info in data:
+            info.pop('_id', None)
+        return jsonify(data), 200
+    else:
+        return "data not found"
+#///////////////////////////////////////////
+@app.route("/working_spaces", methods=['GET'])
+def get_working_spaces():
+    # Gather all data
+    data = list(collection.find({"working_space":"true"}))
+
+
+    # Removing ObjectId and returning the data
+    if data:
+        for info in data:
+            info.pop('_id', None)
+        return jsonify(data), 200
+    else:
+        return "data not found"
 # ////////////////////////////////////////////////////
 @app.route("/weather", methods=["POST"])
 def weather_DEF():

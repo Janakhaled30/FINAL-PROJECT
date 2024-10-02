@@ -4,16 +4,18 @@ import './cardStyle.css'
 
 
 function Card(props) {
-    const { placeName, placeImage, placeInfo } = props;
+    const { placeName, placeImage,placeInfo} = props;
 
     return (
-  <div class="card">
-    <div class="content">
-      <h2 class="title">{placeName}</h2>
-      <img src={placeImage} alt={placeName} />
-      <p class="copy">{placeInfo}</p>
-      <a href ='/place' class="btn">Wanna visit</a>
-    </div>
+  <div className="card" style={{ 
+    backgroundImage: `url(${placeImage})` 
+}}>
+    <div className="content">
+      <h2 className="title">{placeName}</h2>
+      <img className='CardImage' src={placeImage} alt={placeName} />
+      <p className="copy">{placeInfo}</p>
+      <a href={`/place/${placeName}`} className="btn">Wanna visit</a>
+      </div>
   </div>
   
     );

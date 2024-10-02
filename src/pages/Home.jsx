@@ -1,15 +1,11 @@
 import React from "react";
 import SuggestedPlaces from "../components/SuggestedPlaces";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-
 
 function Home(){
     return(
-        <div style={{textAlign:'left'}} className="main">
-            <Header/>
+        <div style={{textAlign:'left'}}>
+            <h1 style={{textAlign:`center`,color:`#183661` , fontSize:`40px` , margin:`24px 0px`, fontWeight:`800`}}>Welcome to Alexplorer</h1>
             <SuggestedPlaces/>
-            <Footer/>
         </div>
     )
 }
