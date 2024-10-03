@@ -5,7 +5,7 @@ import Card from "../components/Card";
 
 function Sports() {
     const [sports, setSports] = useState([]);
-  
+  //get data from the backend
     useEffect(() => {
       axios.get('http://localhost:5000/sports')
         .then(response => {
@@ -17,10 +17,10 @@ function Sports() {
           console.error('Error fetching data');
         });
     }, []);
-    if ( sports.length === 0) {
+    if ( sports.length === 0) { //to wait for the data
             return <h4>Loading...</h4>;
     }
-    else{return (
+    else{return ( //return cards
             <div className="container text-center">
                 <div className="row g-2">
                     {sports.map((place) => (
