@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Card from "../components/Card";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 
 function Explore() {
     const [places, setPlaces] = useState([]);
 
-    const getAllPlaces = async () => {
+    const getAllPlaces = async () => {  //get data from the backend
         try {
             const response = await axios.get(`http://127.0.0.1:5000/get_data`, null, {
 
@@ -20,15 +19,15 @@ function Explore() {
         }
     };
 
-    useEffect(() => {
+    useEffect(() => {  //call the function
         getAllPlaces();
     }, []);
 
-    return (
+    return ( //return cards
         <div className="container text-center">
             <div className="row g-2">
-                {places.map((place, index) => (
-                    <div className="col-6" key={index}>
+                {places.map((place) => (
+                    <div className="col-6">
                         <div className="p-3">
                             <Card
                                 placeName={place.name}
