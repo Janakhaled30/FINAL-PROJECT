@@ -6,7 +6,6 @@ import axios from 'axios';
 
 
 function SuggestedPlaces() {
-    // const places = [];
     const [places, setPlaces] = useState([]);
     const [weather, setWeather] = useState(null);
     const api = "https://api.openweathermap.org/data/2.5/weather?q=alexandria&appid=e3f9787e87e2a1b46edcb0c315830d35&units=metric";
@@ -49,8 +48,8 @@ function SuggestedPlaces() {
 
                     <div className="container text-center">
                         <div className="row g-2">
-                            {places.slice(0, 4).map((place, index) => (
-                                <div className="col-6" key={index}>
+                            {places.slice(0, 4).map((place) => (
+                                <div className="col-6">
                                     <div className="p-3">
                                         <Card
                                             placeName={place.name}
