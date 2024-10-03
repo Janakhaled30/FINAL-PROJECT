@@ -12,7 +12,7 @@ useEffect(() => {
   getPlaceDetails(placeName); // Fetch details when component mounts
 }, [placeName]);
 
-const getPlaceDetails = async (name) => {
+const getPlaceDetails = async (placeName) => {
   try {
     const response = await axios.post(`http://127.0.0.1:5000/name`, null, {
       params: {
