@@ -23,8 +23,8 @@ function Sports() {
     else{return (
             <div className="container text-center">
                 <div className="row g-2">
-                    {sports.map((place, index) => (
-                        <div className="col-6" key={index}>
+                    {sports.map((place) => (
+                        <div className="col-6"}>
                             <div className="p-3">
                                 <Card
                                     placeName={place.name}
