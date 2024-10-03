@@ -28,11 +28,12 @@ function Place() {
   useEffect(() => {
     getPlaceDetails(placeName); // Fetch details when component mounts
   }, [placeName]);
-  
+
+  //make sure the data is here
 if(place!==null)
 { 
   console.log(place)
-  return (
+  return ( //return cards
     <div className='container'>
         <h1 className='heading'>{place[0].name}</h1>
       <img className='placeImg' src={place[0].image_url} /> 
