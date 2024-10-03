@@ -1,0 +1,91 @@
+body {
+    background: #ffff;
+  }
+  
+  h3 {
+    font-family: lato;
+    font-weight: 600;
+    margin: 20px auto 10px auto;
+    color: darkblue;
+  }
+  
+  /* Make carousel-container take full width with a max-width for large screens */
+  .carousel-container {
+    width: 100%;
+    max-width: 1200px;  /* Set a maximum width for large screens */
+    margin: 0 auto;
+    position: relative;  /* Ensure that absolute-positioned arrows won't affect layout */
+  }
+  
+  /* Keep carousel items consistent size */
+  .carousel-item {
+    padding: 15px;
+    cursor: -webkit-grabbing;
+  }
+  
+  .carousel-item img {
+    border-radius: 30px;
+    height: 500px;
+    width: 100%;  /* Ensure image always takes up full width */
+    object-fit: cover;  /* Keep aspect ratio intact */
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, .21);
+    transition: .25s linear;
+  }
+  
+  .carousel-item:hover img {
+    transform: translateY(-1%);
+  }
+  
+  /* Ensure the carousel controls do not change the layout */
+  .carousel-control-prev, .carousel-control-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;  /* Adjust arrow size */
+    height: 50px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 50%;
+    z-index: 1;  /* Keep arrows above other content */
+  }
+  
+  .carousel-control-prev {
+    left: 10px;
+    background-color:transparent
+
+  }
+  
+  .carousel-control-next {
+    right: 10px;
+    background-color:transparent
+
+  }
+  
+  /* Customize carousel indicators */
+  .carousel-indicators li {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 1px;
+    text-indent: -999px;
+    cursor: pointer;
+    background-color: #000 \9;
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin: 2px;
+    position: relative;
+    top: 30px;
+  }
+  
+  .carousel-indicators .active {
+    background: #fff;
+  }
+  
+  /* For responsive design on mobile */
+  @media only screen and (max-width: 650px) {
+    .carousel-item img {
+      height: auto;
+    }
+  }
+  
