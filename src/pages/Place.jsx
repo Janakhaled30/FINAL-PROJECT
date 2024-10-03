@@ -4,34 +4,33 @@ import { useParams } from 'react-router-dom';
 import './Place.css'
 
 
-function Place(props) {
+function Place() {
   const { placeName } = useParams();
   const [place, setPlace] = useState(null);
  
-useEffect(() => {
-  getPlaceDetails(placeName); // Fetch details when component mounts
-}, [placeName]);
-
-const getPlaceDetails = async (placeName) => {
-  try {
-    const response = await axios.post(`http://127.0.0.1:5000/name`, null, {
-      params: {
-        name: placeName
+ //get the data from the backend 
+  const getPlaceDetails = async (placeName) => {
+    try {
+      const response = await axios.post(`http://127.0.0.1:5000/name`, null, {
+        params: {
+          name: placeName
+        }
+      });
+      setPlace(response.data);  
+      console.log(place);
+      
     }
-    });
-    setPlace(response.data);  
-    console.log(place);
-
-  }
-     catch (error) {
-    console.error("Error fetching place details", error);
-  }
-};
-
-
-if(place && place!==null)
+    catch (error) {
+      console.error("Error fetching place details", error);
+    }
+  };
+  // call the function
+  useEffect(() => {
+    getPlaceDetails(placeName); // Fetch details when component mounts
+  }, [placeName]);
+  
+if(place!==null)
 { 
-  console.log("hii")
   console.log(place)
   return (
     <div className='container'>
