@@ -5,7 +5,7 @@ import Card from "../components/Card";
 
 function Working_spaces() {
     const [spaces, setSpaces] = useState([]);
-  
+  //get data from the backend
     useEffect(() => {
       axios.get('http://localhost:5000/working_spaces')
         .then(response => {
@@ -17,10 +17,10 @@ function Working_spaces() {
           console.error('Error fetching data');
         });
     }, []);
-    if ( spaces.length === 0) {
+    if ( spaces.length === 0) { //to wait for the data
             return <h4>Loading...</h4>;
     }
-    else{return (
+    else{return ( //return cards
             <div className="container text-center">
                 <div className="row g-2">
                     {spaces.map((place, index) => (
